@@ -15,12 +15,21 @@ body {
 }
 
 /* Navbar/Header */
-header {
+/* header {
   background-color: #343a40;
   color: #fff;
   padding: 20px 0;
   text-align: center;
+} */
+
+header {
+  background: linear-gradient(to right, #000000, #434343); /* black gradient */
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
+
 nav {
   margin-top: 10px;
 }
@@ -50,15 +59,20 @@ main {
 }
 
 /* Book Cards */
+
+
+
 .book-card {
-  background: #fff;
+  background: linear-gradient(to bottom right, #ffffff, #f0f8ff);
   border: 1px solid #ddd;
   border-radius: 10px;
-  overflow: hidden;
   padding: 15px;
   text-align: center;
+  overflow: hidden;
   transition: box-shadow 0.3s ease;
 }
+
+
 .book-card:hover {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
@@ -186,3 +200,72 @@ section {
  #adminLink {
     display: none;
  }
+
+
+ /* *************************** */
+
+ /* Hero Section */
+.hero {
+  background-image: url('../images/book-banner.jpg'); /* Add a banner image */
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  color: white;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #2193b0, #6dd5ed); /* ocean blue */
+  color: white;
+  padding: 100px 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+.hero-content p {
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+
+
+.hero-content button {
+  background: linear-gradient(to right, #00379d, #0072ff);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.hero-content button:hover {
+  opacity: 0.9;
+}
+
+
+/* Why Choose Us */
+.why-us {
+  background-color: #fff;
+  padding: 30px;
+  margin-top: 40px;
+  border-radius: 10px;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.1);
+}
+.why-us ul {
+  list-style: none;
+  padding-left: 0;
+  font-size: 1rem;
+}
+.why-us li {
+  margin: 10px 0;
+  padding-left: 10px;
+}
