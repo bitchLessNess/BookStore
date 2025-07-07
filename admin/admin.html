@@ -1,0 +1,111 @@
+<!-- admin.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Panel - Add Books</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <h1>Admin Panel</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="books.html">Books</a>
+      <a href="admin/admin.html">Admin</a>
+    </nav>
+  </header>
+  <script>
+  const pin = prompt("Enter admin PIN:");
+  if (pin !== "1234") { // change this to your secret PIN
+    alert("Access denied!");
+    window.location.href = "index.html"; // redirect to home
+  }
+</script>
+
+  <main>
+    <h2>Add a New Book</h2>
+    <form id="add-book-form">
+      <label>Book Title:
+        <input type="text" id="title" required />
+      </label><br><br>
+
+      <label>Author:
+        <input type="text" id="author" required />
+      </label><br><br>
+
+      <label>Price (₹):
+        <input type="number" id="price" required />
+      </label><br><br>
+
+      <label>Image URL (or file name if in images/ folder):
+        <input type="text" id="image" required />
+      </label><br><br>
+
+      <label>Description:
+        <textarea id="description" rows="4" required></textarea>
+      </label><br><br>
+
+      <button type="submit">Add Book</button>
+    </form>
+
+    <div style="margin-top: 30px;">
+      <h3>Books You've Added</h3>
+      <ul id="added-books"></ul>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById("add-book-form");
+    const addedBooksList = document.getElementById("added-books");
+
+    // Load existing books
+    const savedBooks = JSON.parse(localStorage.getItem("customBooks")) || [];
+
+    function displayAddedBooks() {
+      addedBooksList.innerHTML = "";
+      if (savedBooks.length === 0) {
+        addedBooksList.innerHTML = "<li>No books added yet.</li>";
+        return;
+      }
+
+      savedBooks.forEach(book => {
+        const li = document.createElement("li");
+        li.textContent = `${book.title} by ${book.author} – ₹${book.price}`;
+        addedBooksList.appendChild(li);
+      });
+    }
+
+    displayAddedBooks();
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const book = {
+        id: Date.now(),
+        title: document.getElementById("title").value,
+        author: document.getElementById("author").value,
+        price: parseFloat(document.getElementById("price").value),
+        image: document.getElementById("image").value,
+        description: document.getElementById("description").value
+      };
+
+      savedBooks.push(book);
+      localStorage.setItem("customBooks", JSON.stringify(savedBooks));
+      alert("Book added successfully!");
+      form.reset();
+      displayAddedBooks();
+    });
+  </script>
+<script>
+  document.addEventListener("keydown", function(e) {
+    if (e.ctrlKey && e.key === 'a') {
+      window.location.href = "admin/admin.html";
+    }
+  });
+</script>
+
+</body>
+</html>

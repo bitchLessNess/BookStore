@@ -1,0 +1,68 @@
+<!-- contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Place Your Order</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Place Your Order</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="books.html">Books</a>
+      <a href="cart.html">Cart</a>
+    </nav>
+  </header>
+
+  <main style="padding: 20px;">
+   <form onsubmit="return sendMail()">
+  <label>
+    Full Name: <input type="text" id="name" required>
+  </label><br><br>
+  <label>
+    Email: <input type="email" id="email" required>
+  </label><br><br>
+  <label>
+    Order Details:
+    <textarea id="message" rows="5" cols="40" required></textarea>
+  </label><br><br>
+  <button type="submit">Submit Order</button>
+</form>
+
+<script>
+  function sendMail() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const message = document.getElementById("message").value;
+
+    const mailtoLink = `mailto:yourstoreemail@example.com?subject=New Order from ${name}&body=Email: ${email}%0A%0A${message}`;
+    window.location.href = mailtoLink;
+    return false; // Prevent form submission
+  }
+</script>
+
+  </main>
+
+  <script>
+    // Load cart data and attach to form before submitting
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Create a string version of the cart
+    const cartSummary = cart.map(item => {
+      return `${item.title} (x${item.quantity}) - ₹${item.price * item.quantity}`;
+    }).join('\n');
+
+    // Attach to hidden field
+    document.getElementById("cartData").value = cartSummary;
+
+    // Optional: auto-fill message box with cart
+    document.querySelector("textarea").value = "Order:\n" + cartSummary + "\n\nTotal: ₹" + 
+      cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  </script>
+
+</body>
+</html>
