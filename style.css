@@ -7,7 +7,7 @@
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
-  background-color: #f8f9fa;
+  background-color: #c3c7cc;
   color: #333;
 }
 body {
@@ -25,13 +25,24 @@ body {
 header {
   background: linear-gradient(to right, #000000, #434343); /* black gradient */
   color: #fff;
-  padding: 20px 0;
+  padding: 20px ;
   text-align: center;
   box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+ 
+  
+}
+
+header h1{
+  font-size: 4rem;
 }
 
 nav {
   margin-top: 10px;
+  display: flex;
+  justify-content: right;
+  align-items: flex-end;
+  padding: 0 14rem;
+  
 }
 nav a {
   color: #fff;
@@ -169,7 +180,7 @@ main h2 {
 
 main {
   background-color: #fff;
-  padding: 40px 20px;
+  padding: 20px 20px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
@@ -205,23 +216,26 @@ section {
  /* *************************** */
 
  /* Hero Section */
-.hero {
+/* .hero {
   background-image: url('../images/book-banner.jpg'); /* Add a banner image */
-  background-size: cover;
+  /* background-size: cover;
   background-position: center;
   padding: 100px 20px;
   color: white;
   text-align: center;
   border-radius: 10px;
   margin-bottom: 40px;
-}
+}     */
+
+
 
 .hero {
-  background: linear-gradient(135deg, #2193b0, #6dd5ed); /* ocean blue */
+  background: linear-gradient(135deg, #01a6ff, #6dd5ed); /* ocean blue */
   color: white;
-  padding: 100px 20px;
+  border: solid  #6dd5ed 3px;
+  padding: 80px 20px;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 20px;
   margin-bottom: 40px;
 }
 
@@ -268,4 +282,110 @@ section {
 .why-us li {
   margin: 10px 0;
   padding-left: 10px;
+}
+
+
+.test-header {
+  color: red;
+}
+
+
+#drop-area {
+  border: 2px dashed #007bff;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+  background-color: #f0f8ff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+#drop-area:hover {
+  background-color: #e6f0ff;
+}
+
+
+
+/* Featured section */
+
+.featured {
+  margin-top: 50px;
+  padding: 20px;
+}
+
+.featured h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+}
+
+.featured-books {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.featured-book {
+  height: 320px;
+  min-width: 250px;
+  max-width: 100%;
+}
+
+
+
+.featured-book {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 320px;
+  
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+.featured-book:hover {
+  transform: scale(1.02);
+}
+
+.vignette-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0; left: 0;
+  background: radial-gradient(
+    circle at bottom right,
+    rgba(0,0,0,0.8) 0%,
+    rgba(0,0,0,0.6) 20%,
+    rgba(0,0,0,0.3) 40%,
+    rgba(0,0,0,0) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+
+
+
+.book-info {
+  color: white;
+  text-align: right;
+  max-width: 70%;
+  padding: 10px;
+}
+
+.book-info h3 {
+  margin: 0 0 5px;
+  font-size: 1.2rem;
+}
+.book-info p {
+  margin: 2px 0;
+  font-size: 0.9rem;
 }

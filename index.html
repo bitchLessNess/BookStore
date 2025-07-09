@@ -18,7 +18,7 @@
       <a href="books.html">Books</a>
       <a href="cart.html">Cart</a>
       <a href="contact.html">Contact</a>
-      <a href="admin/admin.html"  id="adminLink" style="color: orange;">Admin</a>
+      <a href="admin.html"  id="adminLink" style="color: orange;">Admin</a>
 
     </nav>
   </header>
@@ -37,23 +37,33 @@
   </section>
 
   <!-- Featured Books -->
-  <section class="featured">
-    <h2>📚 Featured Books</h2>
-    <div class="book-grid">
-      <div class="book-card">
-        <img src="images/atomic.jpg" alt="Atomic Habits" />
-        <h3>Atomic Habits</h3>
-        <p>By James Clear</p>
-        <p>₹350</p>
-      </div>
-      <div class="book-card">
-        <img src="images/alchemist.jpg" alt="The Alchemist" />
-        <h3>The Alchemist</h3>
-        <p>By Paulo Coelho</p>
-        <p>₹299</p>
+<section class="featured">
+  <h2>Featured Books</h2>
+
+  <div class="featured-books">
+    <div class="featured-book" style="background-image: url('images/atomic.jpg');">
+      <div class="vignette-overlay">
+        <div class="book-info">
+          <h3>Atomic Habits</h3>
+          <p>By James Clear</p>
+          <p>₹350</p>
+        </div>
       </div>
     </div>
-  </section>
+
+    <div class="featured-book" style="background-image: url('images/alchemist.jpg');">
+      <div class="vignette-overlay">
+        <div class="book-info">
+          <h3>The Alchemist</h3>
+          <p>By Paulo Coelho</p>
+          <p>₹299</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
   <!-- Why Choose Us -->
   <section class="why-us">
